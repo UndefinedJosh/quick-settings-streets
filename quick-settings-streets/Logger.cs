@@ -14,7 +14,7 @@ namespace quick_settings_streets
             switch (level)
             {
                 case LogLevel.Info:
-                    loggerInstance = new MelonLogger.Instance(Assembly.GetExecutingAssembly().GetName().Name, Color.BlueViolet);
+                    loggerInstance = new MelonLogger.Instance(Assembly.GetExecutingAssembly().GetName().Name, Color.Teal);
                     break;
                 case LogLevel.Error:
                     loggerInstance = new MelonLogger.Instance(Assembly.GetExecutingAssembly().GetName().Name, Color.Red);

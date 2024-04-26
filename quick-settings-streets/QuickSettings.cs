@@ -74,11 +74,9 @@ namespace quick_settings_streets
 
                 isSloMoEffectActive =! isSloMoEffectActive;
                 sloMoEffect.SetActive(isSloMoEffectActive);
-
-                Logger.Log(sloMoEffect.active.ToString(), Logger.LogLevel.Debug);
             }
 
-            if (Input.GetKeyDown(config.FirstPerson))
+            if (Input.GetKeyUp(config.FirstPerson))
             {
                 GameObject fpCamera = GameObject.Find("BMXS Game World PIPE Sytle/Player Components/Character Manager/Character Controller/FirstPerson Camera Root/FirstPerson Camera");
 
@@ -92,7 +90,6 @@ namespace quick_settings_streets
 
                 Logger.Log(fpCamera.active.ToString(), Logger.LogLevel.Debug);
             }
-
         }
 
         public override void OnGUI()
@@ -104,6 +101,14 @@ namespace quick_settings_streets
             }
 
             menu.DrawMenuGUI();
+        }
+
+        public override void OnSceneWasLoaded(int buildIndex, string sceneName)
+        {
+            if (sceneName == "BMXS Game World PIPE Sytle/Player Components/BMX Components (PIPE STYLE) 2/State Machine/Air (1)/Air Trick Ability List/")
+            {
+                TrickManager.SetAirTrickState(config);
+            }
         }
 
         private void LoadConfig()
